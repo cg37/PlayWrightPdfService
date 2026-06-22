@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11801.241 oobstable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayWrightPdfService", "PlayWrightPdfService.csproj", "{C9475284-F9A4-4838-D821-BA1340FF2942}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9475284-F9A4-4838-D821-BA1340FF2942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9475284-F9A4-4838-D821-BA1340FF2942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9475284-F9A4-4838-D821-BA1340FF2942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9475284-F9A4-4838-D821-BA1340FF2942}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3401183D-FAC5-49DA-96E0-290D0DCC7E25}
+	EndGlobalSection
+EndGlobal

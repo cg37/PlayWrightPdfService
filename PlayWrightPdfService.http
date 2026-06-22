@@ -1,0 +1,6 @@
+@PlayWrightPdfService_HostAddress = http://localhost:5174
+
+GET {{PlayWrightPdfService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

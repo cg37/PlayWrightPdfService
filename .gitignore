@@ -1,0 +1,66 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.sln.docstates
+*.userprefs
+*.csproj.user
+*.dbmdl
+*.dbproj.schemaview.json
+*.psess
+*.vspx
+*.pidb
+*.crunchsolution*
+*.crunchproject*
+*.nupkg
+*.DotSettings.user
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebugPublic/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# NuGet
+*.nuget.props
+*.nuget.targets
+packages/
+.nuget/
+
+# Visual Studio
+.vs/
+*.VisualState.xml
+TestResults/
+[Tt]est[Rr]esult*
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
+
+# User-specific config
+appsettings.*.local.json
+secrets.json
+
+# Node (if applicable)
+node_modules/
+
+# Playwright (browser downloads)
+bin/Debug/**/.playwright/
