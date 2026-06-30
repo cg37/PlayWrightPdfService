@@ -1,3 +1,4 @@
+using PlayWrightPdfService.Middleware;
 using PlayWrightPdfService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,5 +30,11 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAll");
 app.UseAuthorization();
 app.MapControllers();
+
+// 启用静态文件（wwwroot）
+app.UseStaticFiles();
+
+// 注册 PDF 文件中间件，处理 /files/ 路径的 Content-Disposition
+app.UseMiddleware<PdfFileMiddleware>();
 
 app.Run();
