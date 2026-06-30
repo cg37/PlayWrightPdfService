@@ -14,10 +14,12 @@ RUN dotnet publish -c Release -o /app
 
 # Install Playwright CLI and download Chromium
 # 国内镜像：用 npmmirror 加速 Chromium 下载，避免超时
+RUN dotnet tool install --global Microsoft.Playwright.CLI
 ENV PATH="$PATH:/root/.dotnet/tools"
 ENV PLAYWRIGHT_DOWNLOAD_HOST=https://registry.npmmirror.com/-/binary/playwright/
-RUN dotnet tool install --global Microsoft.Playwright.CLI && \
-    playwright install chromium
+# playwright install 需要从项目输出目录读取 Microsoft.Playwright 程序集
+WORKDIR /app
+RUN playwright install chromium
 
  # =============================================================================
  # Stage 2: Runtime (lean aspnet image + Chromium from build stage)
