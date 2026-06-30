@@ -64,3 +64,5 @@ node_modules/
 
 # Playwright (browser downloads)
 bin/Debug/**/.playwright/
+
+wwwroot/
