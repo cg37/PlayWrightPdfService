@@ -1,0 +1,36 @@
+ services:
+   # ──────────────────────────────────────────────
+   # PDF 生成服务（你的 .NET 10 应用）
+   # ──────────────────────────────────────────────
+   pdf-service:
+     build: .
+     restart: unless-stopped
+     volumes:
+       # 持久化生成的 PDF 文件，容器重建不丢失
+       - pdf_data:/app/wwwroot/files
+     environment:
+       - ASPNETCORE_ENVIRONMENT=Production
+     networks:
+       - internal
+
+   # ──────────────────────────────────────────────
+   # Cloudflare Tunnel 客户端
+   # 将 pdf-service:5050 安全地暴露到公网
+   # ──────────────────────────────────────────────
+   cloudflared:
+     image: cloudflare/cloudflared:latest
+     restart: unless-stopped
+     # --no-autoupdate: 禁止 cloudflared 在容器内自更新
+     # run --token: 使用预创建的隧道 Token 认证
+     command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN:?请在 .env 中设置 TUNNEL_TOKEN}
+     depends_on:
+       - pdf-service
+     networks:
+       - internal
+
+ volumes:
+   pdf_data:
+
+ networks:
+   internal:
+     driver: bridge

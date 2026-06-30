@@ -29,6 +29,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowAll");
 app.UseAuthorization();
+app.UseMiddleware<CfAccessValidationMiddleware>();
 app.MapControllers();
 
 // 启用静态文件（wwwroot）
