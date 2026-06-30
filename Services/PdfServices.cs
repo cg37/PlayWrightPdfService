@@ -52,13 +52,13 @@ public class PdfServices : IDisposable
             var pdfOptions = options ?? new PagePdfOptions
             {
                 Format = "A4",
-                PrintBackground = true,
+                PrintBackground = false,
                 Margin = new Margin
                 {
-                    Top = "1cm",
-                    Bottom = "1cm",
-                    Left = "1cm",
-                    Right = "1cm",
+                    Top = "0cm",
+                    Bottom = "0cm",
+                    Left = "0cm",
+                    Right = "0cm",
 
                 }
             };

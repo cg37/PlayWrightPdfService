@@ -27,7 +27,14 @@ public class PdfController: ControllerBase{
         try
         {
             var pdfBytes = await _pdfService.UrlToPdfAsync(request.Url);
-            return File(pdfBytes, "application/pdf", "documnet.pdf");
+            
+            var filename = string.IsNullOrWhiteSpace(request.Filename) 
+                ? "document.pdf" 
+                : request.Filename;
+            
+            Response.Headers.Append("filename", filename);
+            
+            return File(pdfBytes, "application/pdf");
         }
         catch (Exception ex)
         {
@@ -40,4 +47,5 @@ public class PdfController: ControllerBase{
 public class UrlRequest
 {
     public string Url { get; set; } = string.Empty;
+    public string? Filename { get; set; }
 }
