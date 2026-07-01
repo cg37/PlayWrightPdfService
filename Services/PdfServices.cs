@@ -17,6 +17,7 @@ public class PdfServices : IDisposable
 
             _browser = _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions {
                 Headless = true,
+                Args = new[] { "--no-sandbox" },
             }).GetAwaiter().GetResult();
 
             _logger.LogInformation("✅ Playwright 浏览器启动成功");

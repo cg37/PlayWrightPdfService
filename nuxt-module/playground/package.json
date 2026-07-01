@@ -1,0 +1,13 @@
+{
+  "name": "nuxt-pdf-service-playground",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "nuxt": "^3.15.0"
+  }
+}
