@@ -23,7 +23,7 @@ RUN playwright install chromium
  # Stage 2: Runtime (lean aspnet image + Chromium from build stage)
  # =============================================================================
  FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
- WORKDIR /app
+WORKDIR /app
 
  # Copy published app
  COPY --from=build /app .
@@ -31,8 +31,10 @@ RUN playwright install chromium
 # Copy Playwright browsers (downloaded in build stage)
 COPY --from=build /root/.cache/ms-playwright /root/.cache/ms-playwright
 
- # Chromium 系统依赖（Playwright Linux 必需）
- RUN apt-get update && apt-get install -y --no-install-recommends \
+ # Chromium 系统依赖（使用阿里云镜像加速国内下载）
+ RUN sed -i 's|http://archive.ubuntu.com|https://mirrors.aliyun.com|g' /etc/apt/sources.list.d/ubuntu.sources && \
+     sed -i 's|http://security.ubuntu.com|https://mirrors.aliyun.com|g' /etc/apt/sources.list.d/ubuntu.sources && \
+     apt-get update && apt-get install -y --no-install-recommends \
      libnss3 \
      libnspr4 \
      libatk1.0-0t6 \
