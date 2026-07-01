@@ -15,10 +15,15 @@ public class PdfServices : IDisposable
         {
             _playwright = Playwright.CreateAsync().GetAwaiter().GetResult();
 
-            _browser = _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions {
-                Headless = true,
-                Args = new[] { "--no-sandbox" },
-            }).GetAwaiter().GetResult();
+           _browser = _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions {
+               Headless = true,
+                Args = new[] {
+                    "--no-sandbox",
+                    "--disable-setuid-sandbox",
+                    "--disable-dev-shm-usage",
+                    "--disable-gpu"
+                },
+           }).GetAwaiter().GetResult();
 
             _logger.LogInformation("✅ Playwright 浏览器启动成功");
         }
