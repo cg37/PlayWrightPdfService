@@ -35,7 +35,8 @@
          // 健康检查端点不需要认证
          var path = context.Request.Path.Value ?? "";
          if (path.Equals("/health", StringComparison.OrdinalIgnoreCase) ||
-             path.StartsWith("/swagger", StringComparison.OrdinalIgnoreCase))
+             path.StartsWith("/swagger", StringComparison.OrdinalIgnoreCase) ||
+             path.StartsWith("/files/", StringComparison.OrdinalIgnoreCase))
          {
              await _next(context);
              return;
