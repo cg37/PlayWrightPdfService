@@ -37,9 +37,9 @@ COPY --from=build /root/.cache/ms-playwright /root/.cache/ms-playwright
      apt-get update && apt-get install -y --no-install-recommends \
      libnss3 \
      libnspr4 \
-     libatk1.0-0t6 \
-     libatk-bridge2.0-0t6 \
-     libcups2t6 \
+     libatk1.0-0t64 \
+     libatk-bridge2.0-0t64 \
+     libcups2t64 \
      libdrm2 \
      libdbus-1-3 \
      libxkbcommon0 \
@@ -49,7 +49,7 @@ COPY --from=build /root/.cache/ms-playwright /root/.cache/ms-playwright
      libgbm1 \
      libpango-1.0-0 \
      libcairo2 \
-     libasound2t6 \
+     libasound2t64 \
      && rm -rf /var/lib/apt/lists/*
 
  # 确保 PDF 存储目录存在
