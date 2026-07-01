@@ -5,11 +5,14 @@
    pdf-service:
      build: .
      restart: unless-stopped
+     ports:
+       - "5050:5050"
      volumes:
        # 持久化生成的 PDF 文件，容器重建不丢失
        - pdf_data:/app/wwwroot/files
      environment:
-       - ASPNETCORE_ENVIRONMENT=Production
+       - ASPNETCORE_ENVIRONMENT=
+       - PDF_SERVICE_API_KEY=${PDF_SERVICE_API_KEY}     
      networks:
        - internal
 
