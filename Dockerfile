@@ -19,7 +19,8 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 ENV PLAYWRIGHT_DOWNLOAD_HOST=https://registry.npmmirror.com/-/binary/playwright/
 # playwright install 需要从项目输出目录读取 Microsoft.Playwright 程序集
 WORKDIR /app
-RUN playwright install chromium
+# playwright install 需要 .csproj 文件来读取 Playwright 版本，指定到源码目录
+RUN playwright install chromium --project /src/PlayWrightPdfService.csproj
 
  # =============================================================================
  # Stage 2: Runtime (lean aspnet image + Chromium from build stage)
